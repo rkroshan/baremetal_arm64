@@ -1,3 +1,20 @@
+## ninja build
+*	Prerequisite
+	```
+	sudo apt install ninja-build gcc-aarch64-linux-gnu qemu-system-aarch64
+	```
+	```
+	python3 -m pip install ninja_syntax
+	```
+*	Build
+	```
+	python3 build_ninja.py
+	```
+*	Run
+	```
+	./run.sh
+	```
+
 # armv8-bare-metal
 *	Purpose
 	* It's a bare-metal study in QEMU (-M virt -cpu cortex-a57)
