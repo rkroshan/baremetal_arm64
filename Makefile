@@ -10,7 +10,7 @@ CC = ${CROSS}-gcc
 AS = ${CROSS}-as
 LD = ${CROSS}-ld
 OBJDUMP = ${CROSS}-objdump
-CFLAGS =  -mcpu=cortex-a57 -Wall -Wextra -g
+CFLAGS =  -mcpu=cortex-a57 -Wall -Wextra -g -nostdlib
 #	-mcpu=name
 #		Specify the name of the target processor
 #	-Wall
@@ -28,7 +28,7 @@ OBJS = boot.o vector.o exception.o kernel.o gic_v3.o uart.o psw.o aarch64.o time
 
 all: $(IMAGE)
 
-${IMAGE}: linker.ld ${OBJS}
+${IMAGE}: ${OBJS}
 	${LD} -T linker.ld $^ -o $@
 	${OBJDUMP} -D kernel.elf > kernel.list
 
